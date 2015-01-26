@@ -14,3 +14,11 @@ Starts a web server on port 3000 with reagent rendering on the server side.
 ```
 rake lein:dev node:dev
 ```
+
+## Todo
+
+* render content on the client as well 
+* allow optional start with nodemon
+* switch from rake to lein
+
+
