@@ -6,4 +6,4 @@
   (str "hello " name))
 
 (defn app-view []
-  [:div "hello world 123"])
+  [:div "hello world"])

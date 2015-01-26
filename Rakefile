@@ -4,6 +4,11 @@ namespace :lein do
     run_command 'infra/lein cljsbuild auto dev'
   end
 
+  desc 'compiles cljs to js once in development mode'
+  task :dev do
+    run_command 'infra/lein cljsbuild once dev'
+  end
+
   desc 'compiles cljs to js'
   task :compile do
     run_command 'infra/lein cljsbuild once prod'
