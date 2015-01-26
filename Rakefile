@@ -29,9 +29,9 @@ namespace :node do
         run_command "curl -L -s -o #{basedir}/react.js http://fb.me/react-0.12.2.js"
       end
 
-      # install npm modules => express, st
+      # install express
       unless Dir.exists? "#{basedir}/node_modules"
-        run_command "(cd #{basedir}; npm install express st)"
+        run_command "(cd #{basedir}; npm install express)"
       end
 
       # copy the script file
