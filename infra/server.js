@@ -36,19 +36,11 @@ global.document = {
 // load the express framework
 
 var express = require('express');
-var st = require('st');
 var app = express();
 
 app.get('/', function (req, res) {
     res.send(site.tools.render_page(req.path));
 });
-
-app.get('/lessons/*', function (req, res) {
-    res.send(site.tools.render_page(req.path));
-});
-
-var mount = st({path: 'target/public', url: '/'});
-app.use(mount);
 
 // ----------------------------------------------------------------------
 // start the server
