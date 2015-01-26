@@ -40,7 +40,7 @@ namespace :node do
 
     desc "run node in #{env} mode"
     task env => "prepare_#{env}" do
-      run_command "(cd target/#{env}/scripts; nodemon server.js)"
+      run_command "(cd target/#{env}/scripts; node server.js)"
     end
   end
 end
