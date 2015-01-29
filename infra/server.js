@@ -11,24 +11,24 @@ goog.require('site.tools');
 
 global.React = require("./react.js");
 global.window = {
-    attachEvent: function (eventName, callback) {
-        return {
-            pathname: "/"
-        };
-    },
-    location: {
-        pathname: "/"
-    }
+  attachEvent: function (eventName, callback) {
+    return {
+      pathname: "/"
+    };
+  },
+  location: {
+    pathname: "/"
+  }
 };
 global.document = {
-    attachEvent: function (eventName, callback) {
-        return {
-            pathname: "/"
-        };
-    },
-    location: {
-        pathname: "/"
-    }
+  attachEvent: function (eventName, callback) {
+    return {
+      pathname: "/"
+    };
+  },
+  location: {
+    pathname: "/"
+  }
 };
 
 // ----------------------------------------------------------------------
@@ -37,12 +37,17 @@ global.document = {
 var express = require('express');
 var st = require('st');
 var app = express();
+var render_page = site.tools.render_page;
 
 app.get('/', function (req, res) {
-    res.send(site.tools.render_page(req.path));
+  res.send(render_page(req.path));
 });
 
-var mount = st({path: 'target/dev', url: '/'});
+app.get('/page-one', function (req, res) {
+  res.send(render_page(req.path));
+});
+
+var mount = st({path: '.', url: '/'});
 app.use(mount);
 
 // ----------------------------------------------------------------------

@@ -1,5 +1,6 @@
 (ns site.tools
   (:require [reagent.core :as reagent :refer [atom]]
+            [secretary.core :as secretary :refer-macros [defroute]]
             [main.core :as core]
             [ajax.core :as ajax]))
 
@@ -18,5 +19,6 @@
     ]])
 
 (defn ^:export render-page [path]
-  (reagent/render-to-static-markup (template {:title "title"
-                                              :body core/app-view})))
+  (reagent/render-to-static-markup (do
+                                     (secretary/dispatch! path)
+                                     (template {:title "title" :body core/app-view}))))
