@@ -11,11 +11,16 @@
   (js/alert "hello world")
   false)
 
+(defn navigation []
+  [:div [:a {:href "/"} "Home Page"]
+   [:span {:style {:padding "5px"}}]
+   [:a {:href "/page-one"} "Page One"]])
+
 (defn home-page []
-  [:div "Home Page"])
+  [:div [navigation] [:h1 "Home Page"]])
 
 (defn page-one []
-  [:div "I am page one"])
+  [:div [navigation] [:h1 "Page One"]])
 
 (defn app-view []
   [:div [@current-page]])
