@@ -1,3 +1,5 @@
+NODE = ENV['NODE'] || 'node'
+
 namespace :lein do
   desc 'automatically recompiles cljs to js when changes are detected'
   task :watch do
@@ -34,9 +36,9 @@ namespace :node do
         run_command "curl -L -s -o #{basedir}/react.js http://fb.me/react-0.12.2.js"
       end
 
-      # install express
+      # install express, st
       unless Dir.exists? "#{basedir}/node_modules"
-        run_command "(cd #{basedir}; npm install express)"
+        run_command "(cd #{basedir}; npm install express st)"
       end
 
       # copy the script file
@@ -45,7 +47,7 @@ namespace :node do
 
     desc "run node in #{env} mode"
     task env => "prepare_#{env}" do
-      run_command "(cd target/#{env}/scripts; node server.js)"
+      run_command "(cd target/#{env}/scripts; #{NODE} server.js)"
     end
   end
 end

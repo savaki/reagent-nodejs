@@ -15,10 +15,25 @@ Starts a web server on port 3000 with reagent rendering on the server side.
 rake lein:dev node:dev
 ```
 
+## Using nodemon
+
+In development mode, it's useful to automatically restart the node server if anything changes.  To do this, we can do the following:
+
+#### Shell #1 - autocompile cljs -> js
+
+```
+rake lein:watch
+```
+
+### Shell #2 - start up nodemon in 
+
+```
+export NODE=nodemon
+rake node:dev
+```
+
 ## Todo
 
-* render content on the client as well 
-* allow optional start with nodemon
 * switch from rake to lein
 
 
