@@ -15,18 +15,25 @@
             [lein-cljsbuild "1.0.4"]]
 
   :cljsbuild {:builds [{:id "dev"
-                        :source-paths ["src"]
+                        :source-paths ["src" "src-client"]
                         :compiler {:optimizations :none
                                    :output-to "target/dev/scripts/app.js"
                                    :output-dir "target/dev/scripts"
                                    :pretty-print true
                                    :source-map true}}
                        {:id "prod"
-                        :source-paths ["src"]
+                        :source-paths ["src" "src-client"]
                         :compiler {:optimizations :advanced
                                    :output-to "target/prod/scripts/app.js"
                                    :output-dir "target/prod/scripts"
                                    :pretty-print true}}
+                       {:id "node"
+                        :source-paths ["src"]
+                        :compiler {:optimizations :none
+                                   :output-to "target/node/scripts/app.js"
+                                   :output-dir "target/node/scripts"
+                                   :pretty-print true
+                                   :source-map true}}
                        ]}
 
   :min-lein-version "2.0.0")

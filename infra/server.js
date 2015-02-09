@@ -47,7 +47,9 @@ app.get('/page-one', function (req, res) {
   res.send(render_page(req.path));
 });
 
-var mount = st({path: '.', url: '/'});
+var docroot = process.env.DOCROOT || '.';
+console.log('DOCROOT set to ' + docroot);
+var mount = st({path: docroot, url: '/'});
 app.use(mount);
 
 // ----------------------------------------------------------------------
