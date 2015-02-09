@@ -10,8 +10,6 @@
 
 (enable-console-print!)
 
-(println "yello world")
-
 (reagent/render-component [core/app-view] (.getElementById js/document "app"))
 
 (let [h (History.)]
