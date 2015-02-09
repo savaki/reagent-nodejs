@@ -25,6 +25,8 @@
 
 ;-----------------------------------------------------------------------------------------------
 
+(secretary/set-config! :prefix "/")
+
 (defroute "/" []
   (.log js/console "home page")
   (reset! current-page home-page))
@@ -33,8 +35,7 @@
   (.log js/console "page-one")
   (reset! current-page page-one))
 
-(secretary/set-config! :prefix "/")
-
 ; the server side doesn't have history, so we want to make sure current-page is populated
 (reset! current-page home-page)
+
 
