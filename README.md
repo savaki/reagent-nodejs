@@ -21,6 +21,15 @@ infra/lein cljsbuild once dev node
 infra/lein nodejs
 ```
 
+## How It Works
+
+On the server side, reagent-nodejs uses node along with express to server content.  There were a couple of shims required to make it work:
+
+* closure requires downloading the nodejs.js bootstrap code from the closure-library
+* a copy of react.js needs to be present in the server's root directory
+* javascript stubs - window.attachEvent, document.attachEvent, and XMLHttpRequest 
+* React var needs to be defined with the contents of react library
+
 ## To Do
 
 * Update to work with advanced mode compilation
