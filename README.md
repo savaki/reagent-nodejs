@@ -17,6 +17,7 @@ render through reagent in the browser.
 Starts a web server on port 3000 with reagent rendering on the server side.
 
 ```
+export DOCROOT="$(pwd)/target/dev"
 infra/lein cljsbuild once dev node
 infra/lein nodejs
 ```
