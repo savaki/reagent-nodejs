@@ -32,7 +32,7 @@ namespace :node do
 
     # download react
     unless File.exists? "#{basedir}/react.js"
-      run_command "curl -L -s -o #{basedir}/react.js http://fb.me/react-0.12.2.js"
+      run_command "curl -L -s -o #{basedir}/react.js http://fb.me/react-0.13.3.js"
     end
 
     # install express, st
