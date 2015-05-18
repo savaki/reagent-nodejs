@@ -2,6 +2,8 @@
 
 Isomorphic reagent app with both server and client side rendering.  
 
+Note: This code is very alpha, use at your own risk.
+
 Initial rendering happens with reagent on the server side in node, subsequent action 
 render through reagent in the browser.
 
