@@ -25,7 +25,7 @@
                                                  :output-dir    "target/prod/scripts"
                                                  :pretty-print  true}}
                                  {:id           "node"
-                                  :source-paths ["src"]
+                                  :source-paths ["src" "src-server"]
                                   :compiler     {:optimizations :none
                                                  :output-to     "target/node/scripts/app.js"
                                                  :output-dir    "target/node/scripts"
