@@ -9,14 +9,14 @@
 
 (defn ^:export start []
   (let [env-docroot (-> node/process .-env .-DOCROOT)       ; read docroot from env
-        docroot     (if (nil? env-docroot) "." env-docroot)
         env-port    (-> node/process .-env .-PORT)
+        docroot     (if (nil? env-docroot) "." env-docroot)
         port        (if (nil? env-port) "3000" env-port)
 
         express     (node/require "express")                ; load express
         app         (express)
 
-        st          (node/require "st")                     ; and st module
+        st          (node/require "st")                     ; load st module
         mount       (st (clj->js {:path docroot
                                   :url  "/"}))]
     (println " DOCROOT set to " docroot)
