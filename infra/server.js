@@ -1,6 +1,12 @@
 // ----------------------------------------------------------------------
 // load the reagent app
 
+global.XMLHttpRequest = {
+    prototype: {
+        ajax$core$AjaxImpl$: false,
+    }
+};
+
 require('./goog/bootstrap/nodejs');
 require('./app');
 goog.require('site.tools');
@@ -11,24 +17,24 @@ goog.require('site.tools');
 
 global.React = require("./react.js");
 global.window = {
-  attachEvent: function (eventName, callback) {
-    return {
-      pathname: "/"
-    };
-  },
-  location: {
-    pathname: "/"
-  }
+    attachEvent: function (eventName, callback) {
+        return {
+            pathname: "/"
+        };
+    },
+    location: {
+        pathname: "/"
+    }
 };
 global.document = {
-  attachEvent: function (eventName, callback) {
-    return {
-      pathname: "/"
-    };
-  },
-  location: {
-    pathname: "/"
-  }
+    attachEvent: function (eventName, callback) {
+        return {
+            pathname: "/"
+        };
+    },
+    location: {
+        pathname: "/"
+    }
 };
 
 // ----------------------------------------------------------------------
@@ -40,11 +46,11 @@ var app = express();
 var render_page = site.tools.render_page;
 
 app.get('/', function (req, res) {
-  res.send(render_page(req.path));
+    res.send(render_page(req.path));
 });
 
 app.get('/page-one', function (req, res) {
-  res.send(render_page(req.path));
+    res.send(render_page(req.path));
 });
 
 var docroot = process.env.DOCROOT || '.';
@@ -56,4 +62,5 @@ app.use(mount);
 // start the server
 
 port = process.env.PORT || "3000";
+console.log("starting web server on port " + port);
 app.listen(parseInt(port));
