@@ -21,3 +21,7 @@ infra/lein cljsbuild once dev node
 infra/lein nodejs
 ```
 
+## To Do
+
+* Update to work with advanced mode compilation
+* Figure out how Clojure shell out can write to stdout.  Currently, ```infra/lein nodejs``` doesn't print anything
